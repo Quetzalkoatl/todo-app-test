@@ -1,6 +1,7 @@
 import {useDispatch} from 'react-redux';
 
 import {removeTodo} from '../store/TodoSlice';
+import {deleteTodo} from '../store/TodoSlice';
 
 import {
 	CardContent,

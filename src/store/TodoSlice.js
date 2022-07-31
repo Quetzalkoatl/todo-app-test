@@ -1,18 +1,22 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 
+import nextId from 'react-id-generator';
+
+const id = nextId();
+
 // export const fetchTodos = createAsyncThunk(
 // 	'todos/fetchTodos',
 // 	async function (_, {rejectWithValue}) {
 // 		try {
-// 			const responce = await fetch(
-// 				'https://jsonplaceholder.typicode.com/todos?_limit=10'
+// 			const response = await fetch(
+// 				'https://jsonplaceholder.typicode.com/todos?_limit=3'
 // 			);
 
-// 			if (!responce.ok) {
+// 			if (!response.ok) {
 // 				throw new Error('Cant fetch todos');
 // 			}
 
-// 			const data = await responce.json();
+// 			const data = await response.json();
 
 // 			return data;
 // 		} catch (error) {
@@ -21,7 +25,61 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 // 	}
 // );
 
-export const todoSlice = createSlice({
+// export const addNewTodo = createAsyncThunk(
+// 	'todos/addNewTodo',
+// 	async function (title, {rejectWithValue, dispatch}) {
+// 		try {
+// 			const todo = {
+// 				id,
+// 				title,
+// 			};
+
+// 			const response = await fetch(
+// 				'https://jsonplaceholder.typicode.com/todos',
+// 				{
+// 					method: 'POST',
+// 					headers: {
+// 						'Content-type': 'application/json',
+// 					},
+// 					body: JSON.stringify(todo),
+// 				}
+// 			);
+
+// 			if (!response.ok) {
+// 				throw new Error('Cant add todo');
+// 			}
+
+// 			const data = await response.json();
+// 			dispatch(addTodo(data));
+// 		} catch (error) {
+// 			return rejectWithValue(error.message);
+// 		}
+// 	}
+// );
+
+// export const deleteTodo = createAsyncThunk(
+// 	'todos/deleteTodo',
+// 	async function (id, {rejectWithValue, dispatch}) {
+// 		try {
+// 			const response = await fetch(
+// 				`https://jsonplaceholder.typicode.com/todos/${id}`,
+// 				{
+// 					method: 'DELETE',
+// 				}
+// 			);
+
+// 			if (!response.ok) {
+// 				throw new Error('Cant delete todo');
+// 			}
+
+// 			dispatch(removeTodo(id));
+// 		} catch (error) {
+// 			return rejectWithValue(error.message);
+// 		}
+// 	}
+// );
+
+const todoSlice = createSlice({
 	name: 'todos',
 	initialState: {
 		todos: [],
@@ -48,6 +106,14 @@ export const todoSlice = createSlice({
 	// 		state.todos = action.payload;
 	// 	},
 	// 	[fetchTodos.rejected]: (state, action) => {
+	// 		state.status = 'rejected';
+	// 		state.error = action.payload;
+	// 	},
+	// 	[addNewTodo.rejected]: (state, action) => {
+	// 		state.status = 'rejected';
+	// 		state.error = action.payload;
+	// 	},
+	// 	[deleteTodo.rejected]: (state, action) => {
 	// 		state.status = 'rejected';
 	// 		state.error = action.payload;
 	// 	},

@@ -4,6 +4,7 @@ import nextId from 'react-id-generator';
 import {TextField, Button} from '@mui/material';
 
 import {addTodo} from '../store/TodoSlice';
+import {addNewTodo} from '../store/TodoSlice';
 
 const TodoInput = () => {
 	const [value, setValue] = useState('');
@@ -23,6 +24,15 @@ const TodoInput = () => {
 		}
 		setValue('');
 	};
+
+	// const handleSubmit = e => {
+	// 	e.preventDefault();
+
+	// 	if (value) {
+	// 		dispatch(addNewTodo(value));
+	// 	}
+	// 	setValue('');
+	// };
 
 	return (
 		<div style={{marginLeft: '10rem'}}>
