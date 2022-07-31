@@ -13,7 +13,7 @@ import {
 	CardActions,
 } from '@mui/material';
 
-const TodoItem = ({id, title}) => {
+const TodoItem = ({id, task}) => {
 	const dispatch = useDispatch();
 
 	return (
@@ -31,9 +31,8 @@ const TodoItem = ({id, title}) => {
 							<Typography
 								variant='body2'
 								sx={{color: 'black', fontSize: '20px', textAlign: 'center'}}
-								color='text.secondary'
 							>
-								{title}
+								{task}
 							</Typography>
 						</CardContent>
 					</CardActionArea>
@@ -42,7 +41,7 @@ const TodoItem = ({id, title}) => {
 							size='small'
 							color='primary'
 							style={{alignSelf: 'center', justifySelf: 'center'}}
-							onClick={() => dispatch(removeTodo(id))}
+							onClick={() => dispatch(deleteTodo(id))}
 						>
 							REMOVE
 						</Button>

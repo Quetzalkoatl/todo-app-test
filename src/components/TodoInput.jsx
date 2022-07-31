@@ -11,28 +11,28 @@ const TodoInput = () => {
 	const dispatch = useDispatch();
 	const id = nextId();
 
-	const handleSubmit = e => {
-		e.preventDefault();
-
-		if (value) {
-			dispatch(
-				addTodo({
-					id,
-					title: value,
-				})
-			);
-		}
-		setValue('');
-	};
-
 	// const handleSubmit = e => {
 	// 	e.preventDefault();
 
 	// 	if (value) {
-	// 		dispatch(addNewTodo(value));
+	// 		dispatch(
+	// 			addTodo({
+	// 				id,
+	// 				title: value,
+	// 			})
+	// 		);
 	// 	}
 	// 	setValue('');
 	// };
+
+	const handleSubmit = e => {
+		e.preventDefault();
+
+		if (value) {
+			dispatch(addNewTodo(value));
+		}
+		setValue('');
+	};
 
 	return (
 		<div style={{marginLeft: '10rem'}}>

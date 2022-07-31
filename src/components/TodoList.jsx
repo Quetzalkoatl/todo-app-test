@@ -5,11 +5,11 @@ import {fetchTodos} from '../store/TodoSlice';
 import TodoItem from './TodoItem';
 
 const TodoList = () => {
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
-	// useEffect(() => {
-	// 	dispatch(fetchTodos());
-	// }, [dispatch]);
+	useEffect(() => {
+		dispatch(fetchTodos());
+	}, [dispatch]);
 
 	const todos = useSelector(state => state.todos);
 
